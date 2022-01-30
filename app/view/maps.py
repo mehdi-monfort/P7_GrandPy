@@ -9,14 +9,18 @@ class Maps:
     def geocode(address):
         """obtaining coordinates: longitude, latitude"""
         params = {
-            "address": address,
-            "key": API_KEY,
-            "region": 'FR',
+            "q": address,
+            "apikey": API_KEY,
             }
         url = f"{GEOCODE_BASE_URL}"
         try:
-            result = requests.get(url, params=params)
+            result = requests.get(url=url, params=params)
             response_map = result.json()
-            return response_map['results'][0]['geometry']['location']
+            position = response_map['items'][0]['position']
+            print(address)
+            print(response_map)
+            return position
+        
         except IndexError as err:
             print(err)
+            

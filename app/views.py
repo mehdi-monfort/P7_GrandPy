@@ -20,5 +20,3 @@ def robot():
 	response = main.query(request.form["userText"])
 	print(response)
 	return jsonify(response)
-
-# mettre chargement

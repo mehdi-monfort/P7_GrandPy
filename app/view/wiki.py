@@ -36,8 +36,4 @@ class Wiki:
         result.raise_for_status()
 
         response_wiki = result.json()
-        # print(response_wiki['query']['pages'][str(page_id)]['extract'])
         return response_wiki['query']['pages'][str(page_id)]['extract']
-
-# faire class puis faire les test avec pytest
-# Wiki.extract("48.858370", "2.294481")

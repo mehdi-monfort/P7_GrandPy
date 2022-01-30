@@ -56,6 +56,7 @@ function displayMessageRobo(mess) {
 }
 
 function displayWiki(extract) {
+	// add wiki element
 	const parent = document.querySelector("ul");
 	const wikextract = document.createElement("p");
 	wikextract.id = "wiki";
@@ -66,21 +67,29 @@ function displayWiki(extract) {
 }
 
 function displayMap(loc) {
+    // create element div
 	const parent = document.querySelector("ul");
 	const maploc = document.createElement("div");
 	maploc.id = "map";
 	maploc.classList.add("map");
 	parent.appendChild(maploc);
-	const map = new google.maps.Map(maploc, {
-		  zoom: 14,
-		  center: loc
-	});
-	const image =
-	    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-	const beachMarker = new google.maps.Marker({
-	    position: loc,
-	    map,
-	    icon: "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png"
-	});
-}
 
+    // Initialize the platform object
+    var platform = new H.service.Platform({
+		apikey: "ao5DPDJ3gGJCMBY8-Rwg_7FJBqRo4iAlKRtHAGl1hxY"
+		});
+	   
+	// Obtain the default map types from the platform object   
+	var defaultLayers = platform.createDefaultLayers();
+	// Instantiate (and display) a map object
+	var map = new H.Map(
+		maploc,
+		defaultLayers.vector.normal.map,
+		{
+		  zoom: 17,
+		  center: loc,
+		});
+
+	const marker = new H.map.Marker(loc);
+	map.addObject(marker);
+}

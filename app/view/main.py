@@ -26,8 +26,9 @@ class Main:
     def query(self, input):
 
         sort = Sortword()
-        if sort.regword(input):
-            location = Maps.geocode(input)
+        sort_input = sort.regword(input)
+        if sort_input:
+            location = Maps.geocode(" ".join(sort_input))
             if location is None:
                 self.noresponse.append(input)
                 self.noresponse.append(random.choice(self.listNoData))

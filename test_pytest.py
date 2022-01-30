@@ -7,7 +7,7 @@ from app.view.wiki import Wiki
 def test_geocode():
 
 	address = "paris"
-	assert Maps.geocode(address) == {'lat': 48.856614, 'lng': 2.3522219}
+	assert Maps.geocode(address) == {'lat': 48.85717, 'lng': 2.3414}
 
 class TestSortword:
 
@@ -16,7 +16,7 @@ class TestSortword:
 
 	def test_regword(self):
 
-		self.input = "bonjour, que peux tu me dire de la tour eiffel ?"
+		self.input = "ou se situe la tour eiffel ?"
 		assert self.S.regword(self.input) == ['tour', 'eiffel']
 
 	def test_regword(self):
@@ -26,11 +26,11 @@ class TestSortword:
 
 	def test_regword(self):
 		
-		self.input = "Où puis-je trouver la cathédrale de Quimper ?"
+		self.input = "Où se trouve la cathédrale de Quimper ?"
 		assert self.S.regword(self.input) == ['cathédrale', 'quimper']
 
 def test_extract():
 
-	longitude = "48.858370"
-	latitude = "2.294481"
-	assert Wiki.extract(longitude, latitude) == "La tour Eiffel  est une tour de fer puddlé de 324 mètres de hauteur (avec antennes) située à Paris, à l’extrémité nord-ouest du parc du Champ-de-Mars en bordure de la Seine dans le 7e arrondissement."
+	longitude = "48.85824"
+	latitude = "2.2945"
+	assert Wiki.extract(longitude, latitude) == 'Le Jules Verne est un restaurant parisien situé au deuxième étage de la tour Eiffel et spécialisé en cuisine française classique.'
