@@ -3,13 +3,13 @@ grandpy is a robot that will give you the address of a place with a story if you
 setup:
 
     Create a virtual environment:
-        linux, mac: virtualenv -p python3 env
-        windows(powershell): virtualenv -p $env:python3 env
+        linux, mac, windows: virtualenv -p python3 env
     Activate a virtual environment:
         linux, mac: source env/bin/activate
         windows(powershell): ./env/scripts/activate.ps1
     clone the project with https://github.com/mehdi-monfort/P7_GrandPy.git
     Install dependencies: pip install -r requirements.txt
+    create file: .env
     open the main file: python3 main.py
 
 How to use:
