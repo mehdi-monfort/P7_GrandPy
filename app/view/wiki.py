@@ -1,13 +1,13 @@
 # coding: utf-8
 import requests
-from pprint import pprint
+
 
 class Wiki:
 
     def extract(latitude, longitude):
 
         url = "https://fr.wikipedia.org/w/api.php"
-         
+
         params = {
             "format": "json",
             "action": "query",
@@ -19,7 +19,6 @@ class Wiki:
         response = requests.get(url, params=params)
         geosearch_data = response.json()
         page_id = geosearch_data['query']['geosearch'][0]['pageid']
-        # pprint(geosearch_data)
 
         params = {
             "format": "json",

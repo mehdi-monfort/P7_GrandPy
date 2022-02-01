@@ -1,5 +1,4 @@
 # coding: utf-8
-import os
 import requests
 from .settings import API_KEY, GEOCODE_BASE_URL
 
@@ -20,7 +19,6 @@ class Maps:
             print(address)
             print(response_map)
             return position
-        
+
         except IndexError as err:
             print(err)
-            

@@ -22,7 +22,7 @@ class Main:
             ]
         self.response = []
         self.noresponse = []
-    
+
     def query(self, input):
 
         sort = Sortword()
