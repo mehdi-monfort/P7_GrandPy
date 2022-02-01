@@ -150,16 +150,3 @@ input[type=text] {
   width: 25px;
   height: 25px;
 }
-
-/* @media (max-width : 1200px) and (orientation: portrait) {
-    .scroller { 
-      height: 1000px;
-    }
-} */
-
-/* @media (max-width : 900px) and (orientation: landscape) {
-  input[type=text] {
-    margin-bottom: 5%;
-    }
-} */
-
