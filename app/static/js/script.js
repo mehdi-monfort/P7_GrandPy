@@ -86,9 +86,11 @@ function displayMap(loc) {
 		maploc,
 		defaultLayers.vector.normal.map,
 		{
-		  zoom: 17,
+		  zoom: 16,
 		  center: loc,
 		});
+    // add a resize listener to make sure that the map occupies the whole container
+    window.addEventListener("resize", () => map.getViewPort().resize());
 
 	const marker = new H.map.Marker(loc);
 	map.addObject(marker);
