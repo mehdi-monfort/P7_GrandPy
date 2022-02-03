@@ -1,5 +1,5 @@
 let form = document.querySelector("#user-text-form");
-
+// get the message from the form 
 function postFormData(url, data) {
 	return fetch("/robot", {
 		method: "POST",
@@ -11,9 +11,12 @@ function postFormData(url, data) {
 
 form.addEventListener("submit", function (event) {
 	event.preventDefault();
+	
+    // rotates the image element
 	let wait = document.getElementById("img");
 	wait.style.display ='inline';
 	wait.classList.toggle('flip')
+
     postFormData("/view", new FormData(form))
     .then(response => {
 		if(response[3]) {
@@ -36,6 +39,7 @@ form.addEventListener("submit", function (event) {
 })
 
 function displayMessageUser(submit) {
+	// add and display message user
 	const parent = document.querySelector("ul");
 	const user = document.createElement("p");
 	user.id = "messageUser";
@@ -46,6 +50,7 @@ function displayMessageUser(submit) {
 }
 
 function displayMessageRobo(mess) {
+	// add and display message robot
 	const parent = document.querySelector("ul");
 	const robo = document.createElement("p");
 	robo.id = "messageRobo";
@@ -56,7 +61,7 @@ function displayMessageRobo(mess) {
 }
 
 function displayWiki(extract) {
-	// add wiki element
+	// add and display wiki element
 	const parent = document.querySelector("ul");
 	const wikextract = document.createElement("p");
 	wikextract.id = "wiki";
