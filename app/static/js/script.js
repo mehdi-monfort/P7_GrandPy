@@ -1,5 +1,6 @@
+// get responses in json
 let form = document.querySelector("#user-text-form");
-// get the message from the form 
+
 function postFormData(url, data) {
 	return fetch("/robot", {
 		method: "POST",
@@ -11,12 +12,9 @@ function postFormData(url, data) {
 
 form.addEventListener("submit", function (event) {
 	event.preventDefault();
-	
-    // rotates the image element
 	let wait = document.getElementById("img");
 	wait.style.display ='inline';
 	wait.classList.toggle('flip')
-
     postFormData("/view", new FormData(form))
     .then(response => {
 		if(response[3]) {
@@ -39,7 +37,7 @@ form.addEventListener("submit", function (event) {
 })
 
 function displayMessageUser(submit) {
-	// add and display message user
+	// add message user
 	const parent = document.querySelector("ul");
 	const user = document.createElement("p");
 	user.id = "messageUser";
@@ -50,7 +48,7 @@ function displayMessageUser(submit) {
 }
 
 function displayMessageRobo(mess) {
-	// add and display message robot
+	// add message robot
 	const parent = document.querySelector("ul");
 	const robo = document.createElement("p");
 	robo.id = "messageRobo";
@@ -61,7 +59,7 @@ function displayMessageRobo(mess) {
 }
 
 function displayWiki(extract) {
-	// add and display wiki element
+	// add wiki element
 	const parent = document.querySelector("ul");
 	const wikextract = document.createElement("p");
 	wikextract.id = "wiki";
@@ -72,18 +70,36 @@ function displayWiki(extract) {
 }
 
 function displayMap(loc) {
+
     // create element div
 	const parent = document.querySelector("ul");
 	const maploc = document.createElement("div");
+
+	// create class map
 	maploc.id = "map";
 	maploc.classList.add("map");
 	parent.appendChild(maploc);
 
+	// create and display image
+	const img = document.createElement("img");
+	img.src = "static/img/loader.gif";
+	maploc.appendChild(img);
+	img.className += "loader";
+	maploc.classList.add("loader");
+	
+	// hide the loader when the map is displayed 
+	var state = document.readyState;
+	if (state == 'complete') {
+		setTimeout(function(){
+			img.className += ' hidden';
+		},1000);
+	}
+
     // Initialize the platform object
     var platform = new H.service.Platform({
-		apikey: "apikey"
+		apikey: "ao5DPDJ3gGJCMBY8-Rwg_7FJBqRo4iAlKRtHAGl1hxY"
 		});
-	   
+
 	// Obtain the default map types from the platform object   
 	var defaultLayers = platform.createDefaultLayers();
 	// Instantiate (and display) a map object
@@ -94,9 +110,10 @@ function displayMap(loc) {
 		  zoom: 16,
 		  center: loc,
 		});
-    // add a resize listener to make sure that the map occupies the whole container
-    window.addEventListener("resize", () => map.getViewPort().resize());
 
+	// add a resize listener to make sure that the map occupies the whole container
+	window.addEventListener("resize", () => map.getViewPort().resize());
 	const marker = new H.map.Marker(loc);
 	map.addObject(marker);
+	
 }
