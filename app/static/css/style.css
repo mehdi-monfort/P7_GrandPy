@@ -111,10 +111,21 @@ input[type=text] {
   font-size: 14px;
 }
 
-#map {
-  background-image: url(../img/loader.gif);
-  background-position:center center;
-  background-repeat:no-repeat;
+.loader {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.map {
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -122,9 +133,9 @@ input[type=text] {
   height: 50%;
   width: 70%;
   border-style: hidden;
-  border-radius: 10px;
   margin-bottom: 20px;
   font-size: 24px;
+  position: relative;
 }
 
 .footer {
