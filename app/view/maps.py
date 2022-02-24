@@ -16,8 +16,6 @@ class Maps:
             result = requests.get(url=url, params=params)
             response_map = result.json()
             position = response_map['items'][0]['position']
-            print(address)
-            print(response_map)
             return position
 
         except IndexError as err:

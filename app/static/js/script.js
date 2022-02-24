@@ -97,7 +97,7 @@ function displayMap(loc) {
 
     // Initialize the platform object
     var platform = new H.service.Platform({
-		apikey: "apikey"
+		apikey: "ao5DPDJ3gGJCMBY8-Rwg_7FJBqRo4iAlKRtHAGl1hxY"
 		});
 
 	// Obtain the default map types from the platform object   
