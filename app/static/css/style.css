@@ -161,3 +161,23 @@ input[type=text] {
   width: 25px;
   height: 25px;
 }
+
+@media screen and (max-width: 768px) {
+    #messageUser {
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    }
+
+    .messageRobo {
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    }
+
+    #wiki {
+      font-size: 10px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+}

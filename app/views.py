@@ -9,7 +9,7 @@ from .view.main import *
 
 @app.route('/')
 def home():
-    return render_template('pages/one.html')
+    return render_template('pages/index.html')
 
 
 @app.errorhandler(404)
