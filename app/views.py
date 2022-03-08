@@ -1,10 +1,6 @@
-from flask import Flask, render_template, jsonify, request
-
-from pprint import pprint
+from flask import render_template, jsonify, request
 from . import app
-from .view.maps import *
-from .view.wiki import *
-from .view.main import *
+from .view.main import Main
 
 
 @app.route('/')
