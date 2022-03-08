@@ -10,6 +10,7 @@ setup:
     clone the project with https://github.com/mehdi-monfort/P7_GrandPy.git
     Install dependencies: pip install -r requirements.txt
     create file: .env
+    put the api key in the script.js file
     open the main file: python3 main.py
 
 How to use:
