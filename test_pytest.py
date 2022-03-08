@@ -1,20 +1,15 @@
 # coding: utf-8
-import pytest
 
-from app.view import maps
 from app.view.maps import Maps
 from app.view.sortword import Sortword
 from app.view.wiki import Wiki
 
 
-def test_geocode(monkeypatch):
-    def mockreturn():
-        return {'lat': 48.85717, 'lng': 2.3414}
-
-    address = "paris"
-    monkeypatch.setattr(maps, 'Maps', mockreturn)
-    expected_value = {'lat': 48.85717, 'lng': 2.3414}
-    assert Maps.geocode(address) == expected_value
+def test_geocode(mocker):
+    mocker.patch('app.view.maps.Maps.geocode', return_value={'lat': 2, 'lng': 4})
+    address = "wakanda"
+    excepted_value = {'lat': 2, 'lng': 4}
+    assert Maps.geocode(address) == excepted_value
 
 
 class TestSortword:
