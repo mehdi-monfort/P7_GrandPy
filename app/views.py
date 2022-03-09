@@ -8,11 +8,6 @@ def home():
     return render_template('pages/index.html')
 
 
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('errors/404.html'), 404
-
-
 @app.route("/robot", methods=["POST"])
 def robot():
     main = Main()
