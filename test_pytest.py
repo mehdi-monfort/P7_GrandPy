@@ -1,15 +1,39 @@
 # coding: utf-8
 
+from app.view.main import Main
 from app.view.maps import Maps
 from app.view.sortword import Sortword
 from app.view.wiki import Wiki
 
 
-def test_geocode(mocker):
-    mocker.patch('app.view.maps.Maps.geocode', return_value={'lat': 2, 'lng': 4})
+def test_main_query(monkeypatch):
     address = "wakanda"
-    excepted_value = {'lat': 2, 'lng': 4}
-    assert Maps.geocode(address) == excepted_value
+
+    def mockreturn_maps(adress):
+        return {'lat': 2, 'lng': 4}
+
+    def mockreturn_wiki(lat, long):
+        return 'test_is_ok!'
+
+    monkeypatch.setattr(Maps, 'geocode', mockreturn_maps)
+    monkeypatch.setattr(Wiki, 'extract', mockreturn_wiki)
+
+    main = Main()
+
+    response = [
+        'wakanda', 'Biiip, je connais très bien, voici la réponse',
+        {'lat': 2, 'lng': 4}, 'test_is_ok!']
+    response2 = [
+        'wakanda', 'Biiip, je connais très bien, voici la réponse',
+        {'lat': 2, 'lng': 4}, 'test_is_ok!']
+    response3 = [
+        'wakanda', "Bip Bip, j'ai une histoire à ce sujet",
+        {'lat': 2, 'lng': 4}, 'test_is_ok!']
+    response4 = [
+        'wakanda', "Bip Bip, j'ai une réponse pour toi",
+        {'lat': 2, 'lng': 4}, 'test_is_ok!']
+
+    assert main.query(address) == response or response2 or response3 or response4
 
 
 class TestSortword:
