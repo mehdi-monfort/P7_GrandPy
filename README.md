@@ -11,7 +11,9 @@ setup:
     Install dependencies: pip install -r requirements.txt
     create file: .env
     put the api key in the script.js file
-    open the main file: python3 main.py
+    open the main file:
+        linux, mac: python3 main.py
+        windows: py main.py
 
 How to use:
 
