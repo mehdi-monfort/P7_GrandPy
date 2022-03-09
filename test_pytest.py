@@ -24,7 +24,7 @@ def test_main_query(monkeypatch):
         'wakanda', 'Biiip, je connais très bien, voici la réponse',
         {'lat': 2, 'lng': 4}, 'test_is_ok!']
     response2 = [
-        'wakanda', 'Biiip, je connais très bien, voici la réponse',
+        'wakanda', "Bip Bip, Données complête, la réponse est",
         {'lat': 2, 'lng': 4}, 'test_is_ok!']
     response3 = [
         'wakanda', "Bip Bip, j'ai une histoire à ce sujet",
