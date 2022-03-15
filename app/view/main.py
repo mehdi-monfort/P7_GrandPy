@@ -28,7 +28,8 @@ class Main:
         sort = Sortword()
         sort_input = sort.regword(input)
         if sort_input:
-            location = Maps.geocode(" ".join(sort_input))
+            maps = Maps()
+            location = maps.geocode(" ".join(sort_input))
             if location is None:
                 self.noresponse.append(input)
                 self.noresponse.append(random.choice(self.listNoData))

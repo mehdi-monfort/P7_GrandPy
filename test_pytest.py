@@ -6,10 +6,29 @@ from app.view.sortword import Sortword
 from app.view.wiki import Wiki
 
 
+def test_mock_maps(monkeypatch):
+    result = {'items': [{'position': {'lat': 2, 'lng': 4}}]}
+
+    class MockResponse(object):
+        def __init__(self):
+            self.status_code = 200
+
+        def json(self):
+            return result
+
+    def mock_get(url, params):
+        return MockResponse()
+
+    monkeypatch.setattr('app.view.maps.requests.get', mock_get)
+    maps = Maps()
+    result_coordinate = maps.geocode('wakanda')
+    assert result_coordinate == {'lat': 2, 'lng': 4}
+
+
 def test_main_query(monkeypatch):
     address = "wakanda"
 
-    def mockreturn_maps(adress):
+    def mockreturn_maps(self, adress):
         return {'lat': 2, 'lng': 4}
 
     def mockreturn_wiki(lat, long):

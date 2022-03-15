@@ -4,12 +4,15 @@ from .settings import API_KEY, GEOCODE_BASE_URL
 
 
 class Maps:
+
+    def __init__(self):
+        self.key = API_KEY
     """get coordinates using here api"""
-    def geocode(address):
+    def geocode(self, address):
         """obtaining coordinates: longitude, latitude"""
         params = {
             "q": address,
-            "apikey": API_KEY,
+            "apikey": self.key,
             }
         url = f"{GEOCODE_BASE_URL}"
         try:
@@ -17,6 +20,5 @@ class Maps:
             response_map = result.json()
             position = response_map['items'][0]['position']
             return position
-
         except IndexError as err:
             print(err)
