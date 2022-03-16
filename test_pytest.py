@@ -74,6 +74,6 @@ class TestSortword:
 
 
 def test_extract():
-    longitude = "48.85824"
-    latitude = "2.2945"
-    assert Wiki.extract(longitude, latitude) == 'Le Jules Verne est un restaurant parisien situé au deuxième étage de la tour Eiffel et spécialisé en cuisine française classique.'
+    latitude = "48.85824"
+    longitude = "2.2945"
+    assert Wiki.extract(latitude, longitude) == 'Le Jules Verne est un restaurant parisien situé au deuxième étage de la tour Eiffel et spécialisé en cuisine française classique.'
